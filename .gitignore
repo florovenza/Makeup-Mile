@@ -1,0 +1,6 @@
+/.claude
+# Página de Canva guardada: tiene tokens de sesión, no subir
+Referencia/*.html
+Referencia/*_files/
+.DS_Store
+/Referencia/

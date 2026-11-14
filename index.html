@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Milena Makeup · Beauty Studio</title>
+  <meta name="description" content="Maquillaje social, quinceañeras y novias en Belgrano, Buenos Aires. Reservá tu turno por WhatsApp." />
+  <meta name="theme-color" content="#141414" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra de edición (solo admin) -->
+  <div class="admin-bar" id="adminBar" hidden>
+    <span class="admin-bar__status">Modo edición · tocá un texto para cambiarlo</span>
+    <div class="admin-bar__actions">
+      <button type="button" class="abtn" id="btnSettings">Ajustes</button>
+      <button type="button" class="abtn abtn--fill" id="btnSave" disabled>Guardar cambios</button>
+      <button type="button" class="abtn" id="btnLogout">Salir</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <!-- El logo abre el acceso de administradora -->
+    <button type="button" class="logo" id="logoBtn" aria-label="Milena Makeup — acceso administradora">
+      <span class="logo__img" data-img="brand.logo"><img alt="" /></span>
+      <span class="logo__text" aria-hidden="true">
+        <span class="logo__top">✦ Beauty Studio ✦</span>
+        <span class="logo__name">Milena</span>
+        <span class="logo__bottom">Makeup</span>
+      </span>
+    </button>
+    <nav class="site-nav" aria-label="Secciones">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#studio">The Studio</a>
+      <a class="btn btn--outline btn--sm" data-wa href="#">Book with me</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- 01 HERO -->
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="label label--line" data-k="hero.label">01 / The beauty edit</p>
+        <h1 class="display hero__title" data-k="hero.title">No sueñes solamente con el look perfecto.</h1>
+      </div>
+      <div class="hero__media" data-img="hero.image">
+        <img alt="Milena, maquilladora" fetchpriority="high" />
+      </div>
+    </section>
+
+    <!-- 02 ABOUT -->
+    <section class="about band band--plum" id="about">
+      <div class="band-head">
+        <p class="label" data-k="about.label">02 / About me</p>
+        <p class="label label--right" data-k="about.label2">The person behind the brush</p>
+      </div>
+      <div class="about__grid">
+        <div class="about__media" data-img="about.image"><img alt="Retrato de Milena" loading="lazy" /></div>
+        <div class="about__copy">
+          <h2 class="display display--xl" data-k="about.title">Meet
+the artist.</h2>
+          <p class="about__quote" data-k="about.quote">La belleza más memorable es la que se siente propia.</p>
+          <hr class="rule" />
+          <p class="body" data-k="about.text">Soy Milena, maquilladora profesional y la persona detrás de Milena Makeup Beauty Studio. Me gusta escuchar lo que imaginás para tu evento y crear, juntas, un look que acompañe tu estilo y te haga sentir cómoda siendo vos misma.
+
+Cada maquillaje es un encuentro: una combinación de técnica, atención a los detalles y una mirada personal sobre la belleza.</p>
+          <p class="signature" data-k="about.signature">Milena</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 PORTFOLIO -->
+    <section class="portfolio band" id="portfolio">
+      <p class="label" data-k="gallery.label">03 / Portfolio</p>
+      <h2 class="display display--xl" data-k="gallery.title">Makeup
+portfolio.</h2>
+      <div class="gallery" id="galleryGrid"></div>
+      <p class="empty" id="galleryEmpty" hidden>Todavía no hay fotos. Agregá las primeras.</p>
+      <label class="btn btn--outline admin-only">
+        Agregar fotos
+        <input type="file" accept="image/*" multiple id="galleryInput" hidden />
+      </label>
+    </section>
+
+    <!-- 04 SERVICES -->
+    <section class="services band" id="services">
+      <div class="band-head">
+        <p class="label" data-k="services.label">04 / The offering</p>
+        <p class="label label--right" data-k="services.label2">Beauty, made personal</p>
+      </div>
+      <h2 class="display display--xxl" data-k="services.title">Services menu</h2>
+      <p class="label label--accent" data-k="services.subtitle">Makeup for your special moments.</p>
+      <div class="service-list" id="servicesList"></div>
+      <button type="button" class="btn btn--outline admin-only" id="btnAddService">Agregar servicio</button>
+    </section>
+
+    <!-- 05 THE STUDIO -->
+    <section class="studio band band--plum" id="studio">
+      <p class="label" data-k="studio.label">05 / The studio</p>
+      <h2 class="display display--xl" data-k="studio.title">The
+studio.</h2>
+      <p class="body studio__text" data-k="studio.text">El estudio privado de Milena Makeup se encuentra en Belgrano, Buenos Aires. Un espacio para dedicarle tiempo a cada detalle de tu maquillaje.</p>
+      <div class="studio__grid">
+        <div class="frame" data-img="studio.image1"><img alt="Pinceles y productos del estudio" loading="lazy" /></div>
+        <div class="frame" data-img="studio.image2"><img alt="Detalles del estudio" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <!-- 06 BOOK WITH ME -->
+    <section class="book" id="reservas">
+      <p class="label" data-k="book.label">06 / Book with me</p>
+      <h2 class="display book__title">
+        <span data-k="book.t1">Your beauty</span><br>
+        <em data-k="book.em">Moment</em> <span data-k="book.t2">starts</span><br>
+        <span data-k="book.t3">here.</span>
+      </h2>
+      <a class="btn btn--fill" data-wa href="#"><span data-k="book.cta">Reservá tu turno</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <p class="book__note" data-k="book.note">Las reservas de maquillaje se coordinan por WhatsApp.</p>
+      <div class="book__links">
+        <a class="link" id="turneroLink" href="#" target="_blank" rel="noopener" hidden>Turnero online <span aria-hidden="true">↗</span></a>
+        <a class="link" id="igLink" href="#" target="_blank" rel="noopener" hidden>Instagram <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="label" data-k="footer.text">Milena Makeup · Beauty Studio · Belgrano, Buenos Aires</p>
+  </footer>
+
+  <!-- Botón fijo de reserva (mobile) -->
+  <a class="wa-float" data-wa href="#" aria-label="Reservá tu turno por WhatsApp">
+    <span>Reservá tu turno</span><span class="arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <!-- Acceso admin -->
+  <dialog class="dialog" id="loginDialog">
+    <form id="loginForm">
+      <h2>Acceso administradora</h2>
+      <p class="dialog__hint" id="loginHint">Ingresá para editar textos y fotos.</p>
+      <label>Email<input type="email" name="email" autocomplete="username" required /></label>
+      <label>Contraseña<input type="password" name="password" autocomplete="current-password" required /></label>
+      <p class="dialog__error" id="loginError" role="alert"></p>
+      <div class="dialog__actions">
+        <button type="button" class="abtn" data-close>Cancelar</button>
+        <button type="submit" class="abtn abtn--fill">Ingresar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Ajustes (solo admin) -->
+  <dialog class="dialog" id="settingsDialog">
+    <form id="settingsForm">
+      <h2>Ajustes</h2>
+      <label>Número de WhatsApp<input name="number" inputmode="tel" placeholder="5491122334455" required /></label>
+      <p class="dialog__hint">Con código de país y área, sin espacios ni “+”. Ej: 5491122334455</p>
+      <label>Mensaje automático<textarea name="message" rows="3"></textarea></label>
+      <label>Instagram (usuario)<input name="instagram" placeholder="milenamakeup" /></label>
+      <label>Link del turnero online (opcional)<input name="turnero" type="url" placeholder="https://..." /></label>
+      <div class="dialog__logo">
+        <span>Logo del encabezado (si no subís uno, se muestra el logo en texto)</span>
+        <button type="button" class="abtn" id="btnChangeLogo">Subir logo</button>
+        <button type="button" class="abtn" id="btnRemoveLogo" hidden>Quitar logo</button>
+      </div>
+      <div class="dialog__actions">
+        <button type="button" class="abtn" data-close>Cancelar</button>
+        <button type="submit" class="abtn abtn--fill">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <input type="file" accept="image/*" id="singleImageInput" hidden />
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
