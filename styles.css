@@ -48,6 +48,11 @@ hr { border: 0; }
 
 [data-k], [data-field] { white-space: pre-line; }
 
+/* que el header fijo no tape el comienzo de la sección al navegar */
+section[id] { scroll-margin-top: 96px; }
+body.is-admin section[id] { scroll-margin-top: 0; }
+[hidden] { display: none !important; }
+
 .skip { position: absolute; left: -999px; top: 8px; background: var(--marfil); color: var(--negro); padding: 8px 14px; z-index: 100; }
 .skip:focus { left: 8px; }
 

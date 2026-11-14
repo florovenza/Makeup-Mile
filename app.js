@@ -176,7 +176,9 @@ function renderGallery() {
   const empty = state.gallery.length === 0;
   $('#galleryEmpty').hidden = !(empty && state.isAdmin);
   // Para visitantes, si no hay fotos se oculta la sección entera.
-  $('#portfolio').hidden = empty && !state.isAdmin;
+  const hide = empty && !state.isAdmin;
+  $('#portfolio').hidden = hide;
+  $$('a[href="#portfolio"]').forEach(a => { a.hidden = hide; });
 }
 
 /* ==========================================================
